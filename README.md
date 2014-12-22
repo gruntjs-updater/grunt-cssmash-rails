@@ -37,53 +37,32 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.locale_path
 Type: `String`
-Default value: `',  '`
+Default value: `'config/locales'`
 
-A string value that is used to do something with whatever.
+The path to your locales folder where the YML file should be generated
 
-#### options.punctuation
+#### options.locale
 Type: `String`
-Default value: `'.'`
+Default value: `'cssmash'`
 
-A string value that is used to do something else with whatever else.
+The language namespace to use for the CSS class translation.  It's recommended that you choose a name that does not collide with national language, to avoid conflicts.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+The default locale path will be automatically detected by rails.  In order to use it in your application, your view code will look like this:
 
-```js
-grunt.initConfig({
-  cssmash: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+    <div class="<%=t :main, locale: :cssmash %>">
+        <!-- ... -->
+    </div>
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+Where `:cssmash` is the locale you chose for your class map.  The output will look like this:
 
-```js
-grunt.initConfig({
-  cssmash: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+    <div class="a">
+        <!-- ... -->
+    </div>
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
