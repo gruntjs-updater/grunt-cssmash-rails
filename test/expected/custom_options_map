@@ -1,5 +1,5 @@
 ---
-  cssmash: 
+  test: 
     test: "a"
     blah: "b"
     selector: "c"

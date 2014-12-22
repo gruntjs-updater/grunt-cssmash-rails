@@ -9,6 +9,8 @@
 'use strict';
 
 var cssmash = require('cssmash');
+var YAML = require('json2yaml');
+var path = require('path');
 
 module.exports = function(grunt) {
 
@@ -18,6 +20,8 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('cssmash', 'Mash CSS class names', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
+      locale_path: 'config/locales',
+      locale: 'cssmash'
     });
 
     // Iterate over all specified file groups.
@@ -37,8 +41,11 @@ module.exports = function(grunt) {
       }).join(grunt.util.linefeed);
 
       var result = cssmash(src);
+      var locale = {};
+      locale[options.locale] = result.map;
+      var localeFile = path.join(options.locale_path, options.locale + '.yml');
 
-      grunt.file.write(f.dest + '.map.json', JSON.stringify(result.map));
+      grunt.file.write(localeFile, YAML.stringify(locale));
       // Write the destination file.
       grunt.file.write(f.dest, result.css);
 

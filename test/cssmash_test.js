@@ -35,8 +35,22 @@ exports.cssmash = {
     var expected = grunt.file.read('test/expected/default_options');
     test.equal(actual, expected, 'class names should be mapped');
 
-    var actual = grunt.file.read('tmp/default_options.map.json');
-    var expected = grunt.file.read('test/expected/default_options_map');
+    actual = grunt.file.read('config/locales/cssmash.yml');
+    expected = grunt.file.read('test/expected/default_options_map');
+    test.equal(actual, expected, 'map file should be valid');
+
+    test.done();
+  },
+
+  custom_options: function(test) {
+    test.expect(2);
+
+    var actual = grunt.file.read('tmp/custom_options');
+    var expected = grunt.file.read('test/expected/custom_options');
+    test.equal(actual, expected, 'class names should be mapped');
+
+    actual = grunt.file.read('tmp/test.yml');
+    expected = grunt.file.read('test/expected/custom_options_map');
     test.equal(actual, expected, 'map file should be valid');
 
     test.done();

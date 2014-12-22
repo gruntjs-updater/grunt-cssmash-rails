@@ -1,0 +1,7 @@
+.a .b {
+    property: value;
+    .dummy
+}
+#id .a .c {
+    property: value;
+}

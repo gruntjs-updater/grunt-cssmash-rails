@@ -1,23 +1,23 @@
 {
-  "name": "grunt-cssmash",
-  "description": "Mash CSS class names",
-  "version": "0.2.1",
-  "homepage": "https://github.com/jonahbron/grunt-cssmash",
+  "name": "grunt-cssmash-rails",
+  "description": "Grunt task for mashing CSS and generating Rails I18n map files",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonahbron/grunt-cssmash-rails",
   "author": {
     "name": "Jonah Dahlquist",
     "email": "jonah@nucleussystems.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/jonahbron/grunt-cssmash.git"
+    "url": "git://github.com/jonahbron/grunt-cssmash-rails.git"
   },
   "bugs": {
-    "url": "https://github.com/jonahbron/grunt-cssmash/issues"
+    "url": "https://github.com/jonahbron/grunt-cssmash-rails/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/jonahbron/grunt-cssmash/blob/master/LICENSE-MIT"
+      "url": "https://github.com/jonahbron/grunt-cssmash-rails/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
@@ -31,11 +31,13 @@
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5",
-    "cssmash": "~0.2.1"
+    "cssmash": "~0.2.1",
+    "json2yaml": "~1.0.3"
   },
   "peerDependencies": {
     "grunt": "~0.4.5",
-    "cssmash": "~0.2.1"
+    "cssmash": "~0.2.1",
+    "json2yaml": "~1.0.3"
   },
   "keywords": [
     "gruntplugin"
