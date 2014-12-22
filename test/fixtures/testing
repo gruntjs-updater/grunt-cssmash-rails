@@ -1,1 +1,7 @@
-Testing
+.test .blah {
+    property: value;
+    .dummy
+}
+#id .test .selector {
+    property: value;
+}

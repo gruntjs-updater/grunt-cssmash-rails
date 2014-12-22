@@ -8,6 +8,8 @@
 
 'use strict';
 
+var cssmash = require('cssmash');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -16,8 +18,6 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('cssmash', 'Mash CSS class names', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-      punctuation: '.',
-      separator: ', '
     });
 
     // Iterate over all specified file groups.
@@ -34,13 +34,13 @@ module.exports = function(grunt) {
       }).map(function(filepath) {
         // Read file source.
         return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+      }).join(grunt.util.linefeed);
 
-      // Handle options.
-      src += options.punctuation;
+      var result = cssmash(src);
 
+      grunt.file.write(f.dest + '.map.json', JSON.stringify(result.map));
       // Write the destination file.
-      grunt.file.write(f.dest, src);
+      grunt.file.write(f.dest, result.css);
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
