@@ -1,7 +1,7 @@
 {
   "name": "grunt-cssmash",
   "description": "Mash CSS class names",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/jonahbron/grunt-cssmash",
   "author": {
     "name": "Jonah Dahlquist",
