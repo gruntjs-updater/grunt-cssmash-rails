@@ -35,7 +35,7 @@
     "json2yaml": "~1.0.3"
   },
   "peerDependencies": {
-    "grunt": "~0.4.5",
+    "grunt": ">=0.4.0",
     "cssmash": "~0.2.1",
     "json2yaml": "~1.0.3"
   },
